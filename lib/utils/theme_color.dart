@@ -12,46 +12,47 @@ class ThemeClass {
   Color textColor = Colors.black;
 
   static ThemeData appTheme = ThemeData(
-      useMaterial3: true,
-      unselectedWidgetColor: Colors.white38,
-      colorScheme: const ColorScheme.light().copyWith(
-          primary: _themeClass.primaryColor,
-          secondary: _themeClass.thirdColor,
-          tertiary: _themeClass.fourthColor),
-      fontFamily: 'Rubik',
-      textTheme: TextTheme(
-        titleLarge: TextStyle(
-          fontSize: 30,
-          fontStyle: FontStyle.normal,
-          color: _themeClass.defaultColor,
-        ),
-        displayMedium: TextStyle(
-          fontSize: 16,
-          fontStyle: FontStyle.normal,
-          color: _themeClass.defaultColor,
-        ),
-        displaySmall: TextStyle(
-          fontSize: 14,
-          fontStyle: FontStyle.normal,
-          color: _themeClass.defaultColor,
-        ),
-        bodyMedium: const TextStyle(
-          fontSize: 16,
-          fontStyle: FontStyle.normal,
-          color: Colors.white30,
-        ),
-        bodySmall: const TextStyle(
-          fontSize: 16,
-          fontStyle: FontStyle.normal,
-          color: Colors.white,
-        ),
-        labelMedium: TextStyle(
-          fontSize: 14,
-          fontStyle: FontStyle.normal,
-          color: _themeClass.defaultColor,
-        ),
+    useMaterial3: true,
+    unselectedWidgetColor: Colors.white38,
+    colorScheme: const ColorScheme.light().copyWith(
+        primary: _themeClass.primaryColor,
+        secondary: _themeClass.thirdColor,
+        tertiary: _themeClass.fourthColor),
+    fontFamily: 'Rubik',
+    textTheme: TextTheme(
+      titleLarge: TextStyle(
+        fontSize: 30,
+        fontStyle: FontStyle.normal,
+        color: _themeClass.defaultColor,
       ),
-      radioTheme: RadioThemeData(
-        fillColor: MaterialStateColor.resolveWith((states) => Colors.white38),
-      ));
+      displayMedium: TextStyle(
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        color: _themeClass.defaultColor,
+      ),
+      displaySmall: TextStyle(
+        fontSize: 14,
+        fontStyle: FontStyle.normal,
+        color: _themeClass.defaultColor,
+      ),
+      bodyMedium: const TextStyle(
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        color: Colors.white30,
+      ),
+      bodySmall: const TextStyle(
+        fontSize: 16,
+        fontStyle: FontStyle.normal,
+        color: Colors.white,
+      ),
+      labelMedium: TextStyle(
+        fontSize: 14,
+        fontStyle: FontStyle.normal,
+        color: _themeClass.defaultColor,
+      ),
+    ),
+    radioTheme: RadioThemeData(
+      fillColor: MaterialStateColor.resolveWith((states) => Colors.white38),
+    ),
+  );
 }

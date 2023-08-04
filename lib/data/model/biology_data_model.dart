@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class BiologyItem {
   String? id;
   String? firstname;
@@ -8,8 +9,7 @@ class BiologyItem {
   String? educationlevel;
   String? department;
   String? academy;
-  String? experience;
-  String? organization;
+  List<Experiencekey>? experiencekey;
   List<String>? skills;
 
   BiologyItem({
@@ -22,8 +22,7 @@ class BiologyItem {
     this.educationlevel,
     this.department,
     this.academy,
-    this.experience,
-    this.organization,
+    this.experiencekey,
     this.skills,
   });
 
@@ -38,8 +37,10 @@ class BiologyItem {
       educationlevel: map["educationlevel"],
       department: map["department"],
       academy: map["academy"],
-      experience: map["experience"],
-      organization: map["organization"],
+      experiencekey: map["experiencekey"] == null
+          ? []
+          : List<Experiencekey>.from(
+              map["experiencekey"]!.map((x) => Experiencekey.fromMap(x))),
       skills: map["skills"] == null
           ? []
           : List<String>.from(map["skills"]!.map((x) => x)),
@@ -57,9 +58,69 @@ class BiologyItem {
       "educationlevel": educationlevel,
       "department": department,
       "academy": academy,
-      "experience": experience,
-      "organization": organization,
+      "experiencekey": experiencekey,
       "skills": skills == null ? [] : List<dynamic>.from(skills!.map((x) => x)),
     };
   }
 }
+
+class Experiencekey {
+  String? experience;
+  String? organization;
+
+  Experiencekey({
+    this.experience,
+    this.organization,
+  });
+
+  factory Experiencekey.fromMap(Map map) {
+    return Experiencekey(
+      experience: map["experience"],
+      organization: map["organization"],
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      "experience": experience,
+      "organization": organization,
+    };
+  }
+}
+
+class SkillChip {
+  final String id;
+  final String name;
+  SkillChip({
+    required this.id,
+    required this.name,
+  });
+}
+
+/*
+{
+    "id": "1",
+    "firstname": "John",
+    "surname": "Doe",
+    "email": "john.doe@example.com",
+    "phone": "1234567890",
+    "birthdate": "1990-01-01",
+    "educationlevel": "Bachelor",
+    "department": "Biology",
+    "academy": "ABC University",
+    "experiencekey": [
+        {
+            "experience": "trianee",
+            "organization": "SWU"
+        },
+        {
+            "experience": "trianee",
+            "organization": "CU"
+        }
+    ],
+    "skills": [
+        "Skill 1",
+        "Skill 2",
+        "Skill 3"
+    ]
+}*/

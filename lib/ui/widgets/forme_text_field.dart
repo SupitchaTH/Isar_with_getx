@@ -7,6 +7,7 @@ import 'package:forme_base_fields/field/material/forme_text_field.dart';
 import 'package:forme_base_fields/forme_base_fields.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart';
+import 'package:profile_app/data/model/biology_data_model.dart';
 import 'package:profile_app/data/model/educationlevel_list.dart';
 import 'package:profile_app/data/model/experience_list.dart';
 import 'package:profile_app/utils/theme_color.dart';
@@ -225,7 +226,7 @@ class _EducationLevelState extends State<EducationLevelDropdownList> {
           borderSide: const BorderSide(width: 2, color: Colors.white38),
         ),
         labelText: "Education Level",
-        labelStyle: const TextStyle(color: Colors.white38),
+        labelStyle: Theme.of(context).textTheme.bodyMedium,
       ),
       items: items
           .map(
@@ -332,69 +333,77 @@ class _ExperienceRadioButtonState extends State<ExperienceRadioButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: Border.all(width: 2, color: Colors.white38),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: RadioListTile<String>(
-              activeColor: _themeClass.defaultColor,
-              fillColor: MaterialStateColor.resolveWith(
-                (states) => states.contains(MaterialState.selected)
-                    ? _themeClass.defaultColor // สีของวงกลมเมื่อ Radio ถูกเลือก
-                    : Theme.of(context)
-                        .unselectedWidgetColor, // สีของวงกลมเมื่อ Radio ไม่ถูกเลือก
-              ),
-              title: Text(
-                experienceList.options[0],
-                style: TextStyle(
-                  color: exCurrentOption == experienceList.options[0]
-                      ? _themeClass.defaultColor
-                      : Theme.of(context).unselectedWidgetColor,
-                ),
-              ),
-              value: experienceList.options[0],
-              groupValue: exCurrentOption,
-              onChanged: (value) {
-                setState(() {
-                  exCurrentOption = value!;
-                  widget.onChanged(exCurrentOption);
-                  log('Value button1: $exCurrentOption');
-                });
-              },
-            ),
+      child: InputDecorator(
+        decoration: InputDecoration(
+          labelText: 'Have any experience?',
+          labelStyle: Theme.of(context).textTheme.bodyMedium,
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.white38),
+            borderRadius: BorderRadius.circular(10),
           ),
-          Expanded(
-            child: RadioListTile<String>(
-              activeColor: _themeClass.defaultColor,
-              fillColor: MaterialStateColor.resolveWith(
-                (states) => states.contains(MaterialState.selected)
-                    ? _themeClass.defaultColor // สีของวงกลมเมื่อ Radio ถูกเลือก
-                    : Theme.of(context)
-                        .unselectedWidgetColor, // สีของวงกลมเมื่อ Radio ไม่ถูกเลือก
-              ),
-              title: Text(
-                experienceList.options[1],
-                style: TextStyle(
-                  color: exCurrentOption == experienceList.options[1]
-                      ? _themeClass.defaultColor
-                      : Theme.of(context).unselectedWidgetColor,
+        ),
+        child: Row(
+          children: [
+            Flexible(
+              child: RadioListTile<String>(
+                activeColor: _themeClass.defaultColor,
+                fillColor: MaterialStateColor.resolveWith(
+                  (states) => states.contains(MaterialState.selected)
+                      ? _themeClass
+                          .defaultColor // สีของวงกลมเมื่อ Radio ถูกเลือก
+                      : Theme.of(context)
+                          .unselectedWidgetColor, // สีของวงกลมเมื่อ Radio ไม่ถูกเลือก
                 ),
+                title: Text(
+                  experienceList.options[0],
+                  style: TextStyle(
+                    color: exCurrentOption == experienceList.options[0]
+                        ? _themeClass.defaultColor
+                        : Theme.of(context).unselectedWidgetColor,
+                  ),
+                ),
+                value: experienceList.options[0],
+                groupValue: exCurrentOption,
+                onChanged: (value) {
+                  setState(() {
+                    exCurrentOption = value!;
+                    widget.onChanged(exCurrentOption);
+                    log('Value button1: $exCurrentOption');
+                  });
+                },
               ),
-              value: experienceList.options[1],
-              groupValue: exCurrentOption,
-              onChanged: (value) {
-                setState(() {
-                  exCurrentOption = value!;
-                  widget.onChanged(exCurrentOption);
-                  log('Value button2: $exCurrentOption');
-                });
-              },
             ),
-          ),
-        ],
+            Flexible(
+              child: RadioListTile<String>(
+                activeColor: _themeClass.defaultColor,
+                fillColor: MaterialStateColor.resolveWith(
+                  (states) => states.contains(MaterialState.selected)
+                      ? _themeClass
+                          .defaultColor // สีของวงกลมเมื่อ Radio ถูกเลือก
+                      : Theme.of(context)
+                          .unselectedWidgetColor, // สีของวงกลมเมื่อ Radio ไม่ถูกเลือก
+                ),
+                title: Text(
+                  experienceList.options[1],
+                  style: TextStyle(
+                    color: exCurrentOption == experienceList.options[1]
+                        ? _themeClass.defaultColor
+                        : Theme.of(context).unselectedWidgetColor,
+                  ),
+                ),
+                value: experienceList.options[1],
+                groupValue: exCurrentOption,
+                onChanged: (value) {
+                  setState(() {
+                    exCurrentOption = value!;
+                    widget.onChanged(exCurrentOption);
+                    log('Value button2: $exCurrentOption');
+                  });
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -462,6 +471,101 @@ class OrganizationFormeTextField extends StatelessWidget {
       style: Theme.of(context).textTheme.bodySmall,
       keyboardType: TextInputType.text,
       cursorColor: Colors.white,
+    );
+  }
+}
+
+class SkillTextField extends StatefulWidget {
+  const SkillTextField({super.key});
+
+  @override
+  State<SkillTextField> createState() => _SkillTextFieldState();
+}
+
+class _SkillTextFieldState extends State<SkillTextField> {
+  final List<SkillChip> _SkillchipList = [];
+  final TextEditingController _SkillchipText = TextEditingController();
+
+  void deleteSkillchip(String id) {
+    setState(() {
+      _SkillchipList.removeWhere((element) => element.id == id);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 5,
+                child: TextField(
+                  controller: _SkillchipText,
+                  decoration: InputDecoration(
+                    hintText: 'Skills',
+                    hintStyle: Theme.of(context).textTheme.bodyMedium,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(
+                          width: 10, color: Colors.transparent),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          width: 10, color: Colors.transparent),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    filled: true,
+                    fillColor: _themeClass.secondColor,
+                  ),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  keyboardType: TextInputType.text,
+                  cursorColor: Colors.white,
+                ),
+              ),
+              Expanded(
+                child: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _SkillchipList.add(SkillChip(
+                          id: DateTime.now().toString(),
+                          name: _SkillchipText.text));
+                      _SkillchipText.text = '';
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.add_circle_outline,
+                    color: Colors.white30,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: _SkillchipList.map((chip) => Chip(
+                    elevation: 2,
+                    shadowColor: Colors.white38,
+                    backgroundColor: _themeClass.secondColor,
+                    side: BorderSide(color: _themeClass.secondColor),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    label: Text(chip.name),
+                    labelStyle: Theme.of(context).textTheme.bodyMedium,
+                    onDeleted: () {
+                      deleteSkillchip(chip.id);
+                    },
+                    deleteIconColor: Colors.white30,
+                  )).toList(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
