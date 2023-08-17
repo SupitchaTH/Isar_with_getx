@@ -1,16 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class BiologyItem {
-  String? id;
-  String? firstname;
-  String? surname;
-  String? email;
-  String? phone;
-  String? birthdate;
-  String? educationlevel;
-  String? department;
-  String? academy;
-  List<Experiencekey>? experiencekey;
-  List<String>? skills;
+  final String? id;
+  final String? firstname;
+  final String? surname;
+  final String? email;
+  final String? phone;
+  final String? birthdate;
+  final String? educationlevel;
+  final String? department;
+  final String? academy;
+  //final List<Experiencekey>? experiencekey;
+  //final List<String>? skills;
 
   BiologyItem({
     this.id,
@@ -22,8 +22,8 @@ class BiologyItem {
     this.educationlevel,
     this.department,
     this.academy,
-    this.experiencekey,
-    this.skills,
+    //this.experiencekey,
+    //this.skills,
   });
 
   factory BiologyItem.fromMap(Map map) {
@@ -37,13 +37,13 @@ class BiologyItem {
       educationlevel: map["educationlevel"],
       department: map["department"],
       academy: map["academy"],
-      experiencekey: map["experiencekey"] == null
+      /*experiencekey: map["experiencekey"] == null
           ? []
           : List<Experiencekey>.from(
               map["experiencekey"]!.map((x) => Experiencekey.fromMap(x))),
       skills: map["skills"] == null
           ? []
-          : List<String>.from(map["skills"]!.map((x) => x)),
+          : List<String>.from(map["skills"]!.map((x) => x)),*/
     );
   }
 
@@ -58,23 +58,28 @@ class BiologyItem {
       "educationlevel": educationlevel,
       "department": department,
       "academy": academy,
-      "experiencekey": experiencekey,
-      "skills": skills == null ? [] : List<dynamic>.from(skills!.map((x) => x)),
+      /*"experiencekey": experiencekey == null
+          ? []
+          : List<dynamic>.from(experiencekey!.map((x) => x.toMap())),
+      "skills": skills == null ? [] : List<dynamic>.from(skills!.map((x) => x)),*/
     };
   }
 }
 
 class Experiencekey {
+  //String? index;
   String? experience;
   String? organization;
 
   Experiencekey({
+    //this.index,
     this.experience,
     this.organization,
   });
 
   factory Experiencekey.fromMap(Map map) {
     return Experiencekey(
+      //index: map["index"],
       experience: map["experience"],
       organization: map["organization"],
     );
@@ -82,6 +87,7 @@ class Experiencekey {
 
   Map<String, dynamic> toMap() {
     return {
+      //"index": index,
       "experience": experience,
       "organization": organization,
     };
@@ -96,6 +102,16 @@ class SkillChip {
     required this.name,
   });
 }
+
+class AdditionalFieldData {
+  final String? experience;
+  final String? organization;
+  AdditionalFieldData({
+    this.experience,
+    this.organization,
+  });
+}
+
 
 /*
 {

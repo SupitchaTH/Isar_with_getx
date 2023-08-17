@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -13,16 +12,45 @@ class ALLBiologyListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text("Name", style: Theme.of(context).textTheme.displayMedium),
-          subtitle:
-              Text("Position :", style: Theme.of(context).textTheme.bodySmall),
-          leading: CircleAvatar(backgroundColor: _themeClass.fourthColor),
-        );
-      },
-    );
+    return SafeArea(
+        child: Column(
+      children: [
+        Expanded(
+          child: GetX<ServiceController>(
+            builder: (controller) {
+              return ListView.builder(
+                itemCount: serviceController.biologyItems.length,
+                itemBuilder: (context, index) {
+                  var biologyItem = serviceController.biologyItems[index];
+                  return Dismissible(
+                    key: UniqueKey(),
+                    direction: DismissDirection.endToStart,
+                    background: Container(),
+                    secondaryBackground: Container(
+                      color: Colors.cyan,
+                      child: const Icon(
+                        Icons.delete_forever,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onDismissed: (direction) {
+                      serviceController.deleteData(biologyItem);
+                    },
+                    child: ListTile(
+                      title: Text(
+                        '${serviceController.biologyItems[index].firstname} ${serviceController.biologyItems[index].surname}',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      subtitle: Text(
+                          '${serviceController.biologyItems[index].email}'),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ),
+      ],
+    ));
   }
 }

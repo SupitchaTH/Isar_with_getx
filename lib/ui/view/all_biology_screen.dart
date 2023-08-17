@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:profile_app/utils/theme_color.dart';
 
 import '../viewmodel/all_biology_list.dart';
 

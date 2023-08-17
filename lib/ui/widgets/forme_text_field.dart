@@ -6,7 +6,6 @@ import 'package:forme/forme.dart';
 import 'package:forme_base_fields/field/material/forme_text_field.dart';
 import 'package:forme_base_fields/forme_base_fields.dart';
 import 'package:intl/intl.dart';
-import 'package:path/path.dart';
 import 'package:profile_app/data/model/biology_data_model.dart';
 import 'package:profile_app/data/model/educationlevel_list.dart';
 import 'package:profile_app/data/model/experience_list.dart';
@@ -21,28 +20,32 @@ class FirstnameFormeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FormeTextField(
+      initialValue: 'Supitcha',
       textAlignVertical: TextAlignVertical.center,
       name: "firstname",
-      validator: FormeValidates.any(
-        [
-          FormeValidates.notEmpty(errorText: 'Firstname should not empty'),
-          FormeValidates.range(1, 5)
-        ],
-      ),
+      validator: FormeValidates.notBlank(errorText: 'Should not be empty'),
       decoration: InputDecoration(
-        hintText: 'Firstname',
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        filled: true,
-        fillColor: _themeClass.secondColor,
-      ),
+          hintText: 'Firstname',
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          filled: true,
+          fillColor: _themeClass.secondColor,
+          errorStyle: Theme.of(context).textTheme.labelSmall),
       keyboardType: TextInputType.name,
       style: Theme.of(context).textTheme.bodySmall,
       cursorColor: Colors.white,
@@ -56,28 +59,32 @@ class LastnameFormeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FormeTextField(
+      initialValue: 'Theppithak',
       textAlignVertical: TextAlignVertical.center,
       name: "Surname",
-      validator: FormeValidates.any(
-        [
-          FormeValidates.notEmpty(errorText: 'Surname should not empty'),
-          FormeValidates.range(1, 5)
-        ],
-      ),
+      validator: FormeValidates.notBlank(errorText: 'Should not be empty'),
       decoration: InputDecoration(
-        hintText: 'Surname',
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        filled: true,
-        fillColor: _themeClass.secondColor,
-      ),
+          hintText: 'Surname',
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          filled: true,
+          fillColor: _themeClass.secondColor,
+          errorStyle: Theme.of(context).textTheme.labelSmall),
       keyboardType: TextInputType.name,
       style: Theme.of(context).textTheme.bodySmall,
       cursorColor: Colors.white,
@@ -91,28 +98,32 @@ class EmailFormeTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FormeTextField(
+      initialValue: 'Supitcha.theppithak@gmail.com',
       textAlignVertical: TextAlignVertical.center,
       name: "email",
-      validator: FormeValidates.any(
-        [
-          FormeValidates.notEmpty(errorText: 'Email should not empty'),
-          FormeValidates.email()
-        ],
-      ),
+      validator: FormeValidates.email(errorText: 'Email is invalid'),
       decoration: InputDecoration(
-        hintText: 'Email',
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        filled: true,
-        fillColor: _themeClass.secondColor,
-      ),
+          hintText: 'Email',
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          filled: true,
+          fillColor: _themeClass.secondColor,
+          errorStyle: Theme.of(context).textTheme.labelSmall),
       style: Theme.of(context).textTheme.bodySmall,
       keyboardType: TextInputType.emailAddress,
       cursorColor: Colors.white,
@@ -126,28 +137,33 @@ class PhoneFormeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FormeTextField(
+      initialValue: '0614979329',
       textAlignVertical: TextAlignVertical.center,
       name: "phone",
-      validator: FormeValidates.any(
-        [
-          FormeValidates.notEmpty(errorText: 'Phone number should not empty'),
-          FormeValidates.equals(10)
-        ],
-      ),
+      validator: FormeValidates.size(
+          min: 10, max: 10, errorText: 'Should have 10 numbers'),
       decoration: InputDecoration(
-        hintText: 'Phone number',
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        filled: true,
-        fillColor: _themeClass.secondColor,
-      ),
+          hintText: 'Phone number',
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          filled: true,
+          fillColor: _themeClass.secondColor,
+          errorStyle: Theme.of(context).textTheme.labelSmall),
       style: Theme.of(context).textTheme.bodySmall,
       keyboardType: TextInputType.phone,
       cursorColor: Colors.white,
@@ -156,7 +172,9 @@ class PhoneFormeTextField extends StatelessWidget {
 }
 
 class BirthdatePicker extends StatelessWidget {
-  BirthdatePicker({super.key});
+  BirthdatePicker({super.key, required this.pickDateController});
+
+  final TextEditingController pickDateController;
 
   DateTime dateTime = DateTime.now();
 
@@ -173,6 +191,10 @@ class BirthdatePicker extends StatelessWidget {
           color: Colors.white38,
           size: 20,
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: const BorderSide(width: 2, color: Colors.transparent),
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
           borderSide: const BorderSide(width: 2, color: Colors.transparent),
@@ -180,6 +202,10 @@ class BirthdatePicker extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(width: 2, color: Colors.transparent),
           borderRadius: BorderRadius.circular(20),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: const BorderSide(width: 2, color: Colors.transparent),
         ),
         filled: true,
         fillColor: _themeClass.secondColor,
@@ -191,6 +217,11 @@ class BirthdatePicker extends StatelessWidget {
           firstDate: DateTime(1900),
           lastDate: DateTime(2100),
         );
+        pickDate.then((value) {
+          if (value != null) {
+            pickDateController.text = format.format(value);
+          }
+        });
         return pickDate;
       },
       style: Theme.of(context).textTheme.bodySmall,
@@ -201,7 +232,8 @@ class BirthdatePicker extends StatelessWidget {
 }
 
 class EducationLevelDropdownList extends StatefulWidget {
-  const EducationLevelDropdownList({super.key});
+  const EducationLevelDropdownList({super.key, required this.onItemSelected});
+  final Function(String) onItemSelected;
 
   @override
   State<EducationLevelDropdownList> createState() => _EducationLevelState();
@@ -221,9 +253,17 @@ class _EducationLevelState extends State<EducationLevelDropdownList> {
         color: Colors.white38,
       ),
       decoration: InputDecoration(
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: const BorderSide(width: 2, color: Colors.transparent),
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(width: 2, color: Colors.white38),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: const BorderSide(width: 2, color: Colors.transparent),
         ),
         labelText: "Education Level",
         labelStyle: Theme.of(context).textTheme.bodyMedium,
@@ -241,7 +281,11 @@ class _EducationLevelState extends State<EducationLevelDropdownList> {
           )
           .toList(),
       onChanged: (item) {
-        setState(() => selectedItem = item);
+        setState(() {
+          selectedItem = item;
+          // เรียกใช้ฟังก์ชัน callback เพื่อ log ค่า selectedItem ใน InsertBiologyPage
+          widget.onItemSelected(selectedItem!);
+        });
       },
       value: selectedItem,
     );
@@ -254,27 +298,32 @@ class DepartmentFormeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FormeTextField(
+      initialValue: 'Biomedical Engineering',
       textAlignVertical: TextAlignVertical.center,
       name: "department",
-      validator: FormeValidates.any(
-        [
-          FormeValidates.notEmpty(errorText: 'Department should not empty'),
-        ],
-      ),
+      validator: FormeValidates.notBlank(errorText: 'Should not be empty'),
       decoration: InputDecoration(
-        hintText: 'Department',
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        filled: true,
-        fillColor: _themeClass.secondColor,
-      ),
+          hintText: 'Department',
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          filled: true,
+          fillColor: _themeClass.secondColor,
+          errorStyle: Theme.of(context).textTheme.labelSmall),
       style: Theme.of(context).textTheme.bodySmall,
       keyboardType: TextInputType.text,
       cursorColor: Colors.white,
@@ -288,28 +337,32 @@ class AcademyFormeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FormeTextField(
+      initialValue: 'Srinakharinwirot University',
       textAlignVertical: TextAlignVertical.center,
       name: "academy",
-      validator: FormeValidates.any(
-        [
-          FormeValidates.notEmpty(
-              errorText: 'Educational institution should not empty'),
-        ],
-      ),
+      validator: FormeValidates.notBlank(errorText: 'Should not be empty'),
       decoration: InputDecoration(
-        hintText: 'Educational institution',
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        filled: true,
-        fillColor: _themeClass.secondColor,
-      ),
+          hintText: 'Educational institution',
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          filled: true,
+          fillColor: _themeClass.secondColor,
+          errorStyle: Theme.of(context).textTheme.labelSmall),
       style: Theme.of(context).textTheme.bodySmall,
       keyboardType: TextInputType.text,
       cursorColor: Colors.white,
@@ -368,7 +421,6 @@ class _ExperienceRadioButtonState extends State<ExperienceRadioButton> {
                   setState(() {
                     exCurrentOption = value!;
                     widget.onChanged(exCurrentOption);
-                    log('Value button1: $exCurrentOption');
                   });
                 },
               ),
@@ -397,7 +449,6 @@ class _ExperienceRadioButtonState extends State<ExperienceRadioButton> {
                   setState(() {
                     exCurrentOption = value!;
                     widget.onChanged(exCurrentOption);
-                    log('Value button2: $exCurrentOption');
                   });
                 },
               ),
@@ -410,31 +461,41 @@ class _ExperienceRadioButtonState extends State<ExperienceRadioButton> {
 }
 
 class ExperienceFormeTextField extends StatelessWidget {
-  const ExperienceFormeTextField({super.key});
+  final TextEditingController controller;
+
+  const ExperienceFormeTextField({
+    required this.controller, // เพิ่มพารามิเตอร์ controller
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FormeTextField(
+      initialValue: 'No',
       name: "experience",
-      validator: FormeValidates.any(
-        [
-          FormeValidates.notEmpty(errorText: 'Experience should not empty'),
-        ],
-      ),
+      validator: FormeValidates.notBlank(errorText: 'Should not be empty'),
       decoration: InputDecoration(
-        hintText: 'Experience',
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        filled: true,
-        fillColor: _themeClass.secondColor,
-      ),
+          hintText: 'Experience',
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          filled: true,
+          fillColor: _themeClass.secondColor,
+          errorStyle: Theme.of(context).textTheme.labelSmall),
       style: Theme.of(context).textTheme.bodySmall,
       keyboardType: TextInputType.text,
       cursorColor: Colors.white,
@@ -443,31 +504,40 @@ class ExperienceFormeTextField extends StatelessWidget {
 }
 
 class OrganizationFormeTextField extends StatelessWidget {
-  const OrganizationFormeTextField({super.key});
+  final TextEditingController controller; // เพิ่มพารามิเตอร์ controller
+  const OrganizationFormeTextField({
+    required this.controller, // เพิ่มพารามิเตอร์ controller
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FormeTextField(
+      initialValue: 'Nothing',
       name: "organization",
-      validator: FormeValidates.any(
-        [
-          FormeValidates.notEmpty(errorText: 'Phone number should not empty'),
-        ],
-      ),
+      validator: FormeValidates.notBlank(errorText: 'Should not be empty'),
       decoration: InputDecoration(
-        hintText: 'Organization',
-        hintStyle: Theme.of(context).textTheme.bodyMedium,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 10, color: Colors.transparent),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        filled: true,
-        fillColor: _themeClass.secondColor,
-      ),
+          hintText: 'Organization',
+          hintStyle: Theme.of(context).textTheme.bodyMedium,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(width: 2, color: Colors.transparent),
+          ),
+          filled: true,
+          fillColor: _themeClass.secondColor,
+          errorStyle: Theme.of(context).textTheme.labelSmall),
       style: Theme.of(context).textTheme.bodySmall,
       keyboardType: TextInputType.text,
       cursorColor: Colors.white,
@@ -476,10 +546,16 @@ class OrganizationFormeTextField extends StatelessWidget {
 }
 
 class SkillTextField extends StatefulWidget {
-  const SkillTextField({super.key});
+  final ValueChanged<List<SkillChip>>
+      onSkillChipListChanged; // เพิ่มพารามิเตอร์
+
+  const SkillTextField({
+    Key? key,
+    required this.onSkillChipListChanged, // รับพารามิเตอร์ผ่าน constructor
+  }) : super(key: key);
 
   @override
-  State<SkillTextField> createState() => _SkillTextFieldState();
+  _SkillTextFieldState createState() => _SkillTextFieldState();
 }
 
 class _SkillTextFieldState extends State<SkillTextField> {
@@ -490,6 +566,14 @@ class _SkillTextFieldState extends State<SkillTextField> {
     setState(() {
       _SkillchipList.removeWhere((element) => element.id == id);
     });
+  }
+
+  List<SkillChip> getSkillChipList() {
+    return _SkillchipList;
+  }
+
+  void _updateSkillChips() {
+    widget.onSkillChipListChanged(_SkillchipList);
   }
 
   @override
@@ -507,14 +591,19 @@ class _SkillTextFieldState extends State<SkillTextField> {
                     hintText: 'Skills',
                     hintStyle: Theme.of(context).textTheme.bodyMedium,
                     enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 2, color: Colors.transparent),
                       borderRadius: BorderRadius.circular(20),
-                      borderSide: const BorderSide(
-                          width: 10, color: Colors.transparent),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          width: 10, color: Colors.transparent),
+                      borderSide:
+                          const BorderSide(width: 2, color: Colors.transparent),
                       borderRadius: BorderRadius.circular(20),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide:
+                          const BorderSide(width: 2, color: Colors.transparent),
                     ),
                     filled: true,
                     fillColor: _themeClass.secondColor,
@@ -531,7 +620,8 @@ class _SkillTextFieldState extends State<SkillTextField> {
                       _SkillchipList.add(SkillChip(
                           id: DateTime.now().toString(),
                           name: _SkillchipText.text));
-                      _SkillchipText.text = '';
+                      _SkillchipText.clear();
+                      _updateSkillChips();
                     });
                   },
                   icon: const Icon(
@@ -547,21 +637,26 @@ class _SkillTextFieldState extends State<SkillTextField> {
             child: Wrap(
               spacing: 10,
               runSpacing: 10,
-              children: _SkillchipList.map((chip) => Chip(
-                    elevation: 2,
-                    shadowColor: Colors.white38,
-                    backgroundColor: _themeClass.secondColor,
-                    side: BorderSide(color: _themeClass.secondColor),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    label: Text(chip.name),
-                    labelStyle: Theme.of(context).textTheme.bodyMedium,
-                    onDeleted: () {
+              children: _SkillchipList.map(
+                (chip) => Chip(
+                  elevation: 2,
+                  shadowColor: Colors.white38,
+                  backgroundColor: _themeClass.secondColor,
+                  side: BorderSide(color: _themeClass.secondColor),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  label: Text(chip.name),
+                  labelStyle: Theme.of(context).textTheme.bodyMedium,
+                  onDeleted: () {
+                    setState(() {
                       deleteSkillchip(chip.id);
-                    },
-                    deleteIconColor: Colors.white30,
-                  )).toList(),
+                      _updateSkillChips(); // เรียก callback ที่นี่
+                    });
+                  },
+                  deleteIconColor: Colors.white30,
+                ),
+              ).toList(),
             ),
           ),
         ],

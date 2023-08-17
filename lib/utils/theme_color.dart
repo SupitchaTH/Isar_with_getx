@@ -50,6 +50,11 @@ class ThemeClass {
         fontStyle: FontStyle.normal,
         color: _themeClass.defaultColor,
       ),
+      labelSmall: TextStyle(
+        fontSize: 12,
+        fontStyle: FontStyle.normal,
+        color: _themeClass.defaultColor,
+      ),
     ),
     radioTheme: RadioThemeData(
       fillColor: MaterialStateColor.resolveWith((states) => Colors.white38),

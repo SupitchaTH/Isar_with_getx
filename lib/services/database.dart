@@ -12,7 +12,7 @@ class DatabaseService {
       version: 1,
       onCreate: (db, version) async {
         await db.execute(
-            "Create Table $BiologyTable (id Text Primary key, firstname Text, surname Text, email Text, phone Text, birthdate Text, educationlevel Text,department Text, academy Text, experience Text, organization Text,skills Text)");
+            "Create Table $BiologyTable (id TEXT PRIMARY KEY, firstname TEXT, surname TEXT, email TEXT, phone TEXT, birthdate TEXT, educationlevel TEXT,department TEXT, academy TEXT, experiencekey TEXT, skills TEXT )");
       },
     );
   }
@@ -27,14 +27,6 @@ class DatabaseService {
   Future<void> insertData(BiologyItem item) async {
     Database db = await database();
     await db.insert(BiologyTable, item.toMap(),
-        conflictAlgorithm: ConflictAlgorithm.replace);
-  }
-
-  Future<void> updateData(BiologyItem item) async {
-    Database db = await database();
-    await db.update(BiologyTable, item.toMap(),
-        where: "id = ?",
-        whereArgs: [item.id],
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 

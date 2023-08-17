@@ -1,15 +1,18 @@
+import 'dart:developer';
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:profile_app/services/isar_service.dart';
 import 'package:profile_app/ui/view/all_biology_screen.dart';
 import 'package:profile_app/ui/view/insert_biology_screen.dart';
 
 import '../../state_management/biology_state_getx.dart';
 import '../../utils/theme_color.dart';
-import '../viewmodel/biology_list.dart';
+import '../viewmodel/profile_view.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -18,7 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int index = 1;
   ServiceController serviceController = Get.put(ServiceController());
-  final ThemeClass _themeClass = ThemeClass();
+  final service = Isarservice();
 
   @override
   Widget build(BuildContext context) {
@@ -42,27 +45,29 @@ class _HomePageState extends State<HomePage> {
       appBarBackgroundColor = Theme.of(context).colorScheme.primary;
     }
 
+    String appBarText = 'Profile';
+    if (index == 0) {
+      appBarText = 'All information';
+    } else if (index == 2) {
+      appBarText = 'Add information';
+    }
+
     return Scaffold(
       backgroundColor: scaffoldBackgroundColor,
       appBar: AppBar(
         toolbarHeight: 50,
         backgroundColor: appBarBackgroundColor,
         title: Text(
-          "Biography",
+          appBarText,
           style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
-        /*shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(30),
-          ),
-        ),*/
       ),
       body: IndexedStack(
         index: index,
         children: [
           AllBiologyList(), // หน้าแรก
-          BiologyListView(), // หน้าแสดงรายการ Biology
+          ProfileView(), // หน้าแสดงรายการ Biology
           InsertBiologyPage(), // หน้าแสดงหน้าแบบฟอร์มเพิ่มข้อมูล Biology
         ],
       ),
