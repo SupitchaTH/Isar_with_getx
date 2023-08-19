@@ -20,43 +20,7 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
-        children: [
-          Expanded(
-            child: GetBuilder<ServiceController>(
-              builder: (controller) {
-                if (controller.biologyItems.isEmpty) {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
-                  );
-                }
-
-                final lastBiologyItem = controller.biologyItems.last;
-                return SafeArea(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundImage:
-                                  AssetImage('assets/Jodfair_1.jpg'),
-                            ),
-                            Text(
-                                '${lastBiologyItem.firstname} ${lastBiologyItem.surname}'),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
+        children: [],
       ),
     );
   }

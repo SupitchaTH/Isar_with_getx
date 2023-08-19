@@ -3,7 +3,6 @@ import 'package:profile_app/data/model/general_data.dart';
 import 'package:profile_app/services/isar_service.dart';
 
 import '../data/model/biology_data_model.dart';
-import '../services/database.dart';
 
 class ServiceController extends GetxController {
   // ประกาศตัวแปร observable เพื่อเก็บ state ของข้อมูล Biology
